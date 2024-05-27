@@ -1,0 +1,131 @@
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #fff; /* Light grey background */
+	margin: 0;
+	padding: 20px;
+  }
+  
+  h1 {
+	color: #333; /* Dark grey text */
+	font-size: 2em;
+	margin-bottom: 20px;
+  }
+  
+  .flex-container {
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+	margin-bottom: 20px;
+  }
+  
+  form {
+	background: #ffffff; /* White background for forms */
+	padding: 20px;
+	border-radius: 5px;
+	flex: 1;
+  }
+  
+  label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+  }
+  
+  input {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+  }
+  
+  button {
+	background-color: #28a745; /* Green color for buttons */
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  button:hover {
+	background-color: #218838; /* Darker green for hover */
+  }
+  
+  .main-content {
+	display: flex;
+	gap: 20px;
+	justify-content: space-between;
+  }
+  
+  .recommendations {
+	background: #ffffff; /* White background for recommendations */
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	flex: 1;
+  }
+  
+  .recommendations h3 {
+	color: #333; /* Dark grey text */
+	font-size: 1.5em;
+  }
+  
+  .recommendations p,
+  .recommendations ul {
+	color: #666; /* Medium grey text */
+  }
+  
+  .recommendations ul {
+	list-style-type: disc;
+	padding-left: 20px;
+  }
+  
+  .recommendations ul li {
+	margin-bottom: 5px;
+  }
+  
+  .map-container {
+	flex: 1; /* Adjusted to take up remaining space */
+	background: #ffffff; /* White background */
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-container {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff; /* White background */
+	padding: 20px;
+	border-radius: 5px;
+  }
+  
+  .image-container img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+  }
+  
+  .options {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 20px;
+  }
+  
+  .option-button {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background: #f9f9f9;
+	cursor: pointer;
+	color: #333;
+  }
+  
+  .option-button.active {
+	background: #28a745;
+	color: white;
+  }
+  
