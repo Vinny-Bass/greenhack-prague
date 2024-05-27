@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import SavingsChart from '../SavingChart/SavingChart';
+import FomoBtn from '../common/FomoBtn/FomoBtn';
 import './SolarSavingsOverview.css';
 
 const formatCurrency = (value, currency = 'GBP') => {
@@ -26,7 +27,7 @@ const SolarSavingsOverview = ({ data }) => {
             <div className="chart-section">
                 <SavingsChart data={data} />
             </div>
-            <button className="buy-button" onClick={() => alert('You want to buy!')}>I want to invest</button>
+            <FomoBtn label={"I want to invest"}/>
         </div>
     );
 };
