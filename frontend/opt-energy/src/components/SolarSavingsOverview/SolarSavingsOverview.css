@@ -1,0 +1,44 @@
+.solar-savings-overview {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.solar-savings-overview h1 {
+    text-align: center;
+    color: #333;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-section p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.chart-section {
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}
