@@ -1,0 +1,27 @@
+/* styles.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Styles for desktop screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .solar-savings-overview, .neighbour-offers {
+        flex: 1;
+        margin: 10px;
+        width: 100%;
+    }
+}
+
+/* Styles for mobile screens */
+@media (max-width: 767px) {
+    .solar-savings-overview, .neighbour-offers {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

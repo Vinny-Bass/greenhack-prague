@@ -5,6 +5,7 @@ import { fetchSavingsData } from "../services/savingsService";
 import { fetchMarketplaceData } from "../services/marketplaceService";
 import NeighbourOffers from "../components/NeighbourOffers/NeighbourOffers";
 import { useParams } from "react-router-dom";
+import "./savingsChart.css"
 
 
 export default function SavingsChart() {
@@ -42,9 +43,9 @@ export default function SavingsChart() {
             <Header />
             <div className="container">
                 {savings && (
-                    <SolarSavingsOverview data={savings}/>
+                    <SolarSavingsOverview data={savings} className="solar-savings-overview" />
                 )}
-                <NeighbourOffers offers={marketplace} />
+                <NeighbourOffers offers={marketplace} className="neighbour-offers" />
             </div>
         </>
     );
