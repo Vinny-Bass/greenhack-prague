@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import './Header.css';
 
 const Header = () => {
@@ -6,8 +7,8 @@ const Header = () => {
       <div className="logo">OptEnergy</div>
       <nav>
         <ul>
-          <li>Calculator</li>
-          <li>MarketPlace</li>
+          <li><Link to={"/"}>Home</Link></li>
+          <li><Link to={"/companies"}>MarketPlace</Link></li>
           <li><button className="partner-button">Search</button></li>
         </ul>
       </nav>

@@ -4,14 +4,11 @@ import { Bar } from 'react-chartjs-2';
 
 const SavingsChart = ({ data }) => {
     const {
-        currentlyCostPerYear,
-        savingPerYear,
-        yearsToRecover,
+        yearlyUtilityBillEstimates,
+        yearlyCostWithoutSolar,
     } = data;
 
-    const labels = Array.from({ length: yearsToRecover + 1 }, (_, i) => `Year ${i}`);
-    const costData = Array.from({ length: yearsToRecover + 1 }, (_, i) => currentlyCostPerYear * i);
-    const savingsData = Array.from({ length: yearsToRecover + 1 }, (_, i) => savingPerYear * i);
+    const labels = Array.from({ length: yearlyUtilityBillEstimates.length }, (_, i) => `Year ${i + 1}`);
 
     const chartData = {
         labels,
@@ -23,7 +20,7 @@ const SavingsChart = ({ data }) => {
                 borderWidth: 1,
                 hoverBackgroundColor: 'rgba(255, 99, 132, 0.4)',
                 hoverBorderColor: 'rgba(255, 99, 132, 1)',
-                data: costData,
+                data: yearlyCostWithoutSolar,
             },
             {
                 label: 'Cumulative Savings with Solar Energy',
@@ -32,7 +29,7 @@ const SavingsChart = ({ data }) => {
                 borderWidth: 1,
                 hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
                 hoverBorderColor: 'rgba(75, 192, 192, 1)',
-                data: savingsData,
+                data: yearlyUtilityBillEstimates,
             },
         ],
     };

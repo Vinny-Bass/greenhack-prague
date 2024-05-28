@@ -10,11 +10,21 @@ import { useParams } from "react-router-dom";
 export default function SavingsChart() {
     const { placeName } = useParams();
     const [savings, setSavings] = useState(null);
+    const [expendPerMonth, setExpendPerMonth] = useState('80');
     const [marketplace, setMarketplace] = useState(null);
 
     useEffect(() => {
+        const userInput = window.prompt("How much you expend per month in electricity:");
+        if (userInput && userInput.trim() !== '') {
+            setExpendPerMonth(userInput);
+        } else {
+            alert('Input cannot be empty. Please reload the page and try again.');
+        }
+    }, []);
+
+    useEffect(() => {
         const getSavingsData = async () => {
-            const data = await fetchSavingsData();
+            const data = await fetchSavingsData(placeName, expendPerMonth);
             setSavings(data);
         };
 
@@ -25,15 +35,17 @@ export default function SavingsChart() {
 
         getSavingsData();
         getMarketplaceData();
-    }, [placeName]);
+    }, [placeName, expendPerMonth]);
 
     return (
         <>
             <Header />
             <div className="container">
-                <SolarSavingsOverview data={savings} />
+                {savings && (
+                    <SolarSavingsOverview data={savings}/>
+                )}
                 <NeighbourOffers offers={marketplace} />
             </div>
         </>
-    )
+    );
 }
