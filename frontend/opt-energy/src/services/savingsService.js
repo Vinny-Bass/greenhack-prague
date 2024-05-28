@@ -1,6 +1,6 @@
 import { getSavingsData } from "../api/savings/savingsApi";
 
-export const fetchSavingsData = async () => {
-    const savings = await getSavingsData();
+export const fetchSavingsData = async ({ placeName }) => {
+    const savings = await getSavingsData(placeName);
     return savings.data;
 }

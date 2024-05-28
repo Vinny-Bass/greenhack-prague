@@ -4,8 +4,11 @@ import Header from "../components/common/Header/Header"
 import { fetchSavingsData } from "../services/savingsService";
 import { fetchMarketplaceData } from "../services/marketplaceService";
 import NeighbourOffers from "../components/NeighbourOffers/NeighbourOffers";
+import { useParams } from "react-router-dom";
+
 
 export default function SavingsChart() {
+    const { placeName } = useParams();
     const [savings, setSavings] = useState(null);
     const [marketplace, setMarketplace] = useState(null);
 
@@ -22,7 +25,7 @@ export default function SavingsChart() {
 
         getSavingsData();
         getMarketplaceData();
-    }, []);
+    }, [placeName]);
 
     return (
         <>

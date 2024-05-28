@@ -11,7 +11,7 @@ const router = createBrowserRouter([
         element: <Root />,
     },
     {
-        path: "/chart",
+        path: "/chart/:placeName",
         element: <SavingsChart />
     },
     {

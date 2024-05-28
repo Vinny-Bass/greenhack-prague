@@ -1,12 +1,11 @@
 import "./Home.css";
-import houseImage from "../../assets/house-logo.jpg";
-// import GoogleMapsLoader from "../PlacesAutoComplete/GoogleMapsLoader";
-// import PlacesAutocomplete from "../PlacesAutoComplete/PlacesAutoComplete";
-// import Autocomplete from "react-google-autocomplete";
-
+import houseImage from "../../assets/house-logo.png";
+import GoogleMapsLoader from "../PlacesAutoComplete/GoogleMapsLoader";
+import PlacesAutocomplete from "../PlacesAutoComplete/PlacesAutoComplete";
 
 export default function Home() {
-    //const API_KEY = "AIzaSyBPNpf4aohuw_fjAB6QZqu06FVxRJ6EM7o";
+    const API_KEY = "AIzaSyCVrqaKz6odqK05Ne7s0QMuP6qiNuLXvkM";
+    const libraries = ["places"];
     return (
         <main>
             <div className="main-text">
@@ -15,17 +14,9 @@ export default function Home() {
                     installation companies
                 </h1>
                 <div className="search-bar">
-                    <input type="text" placeholder="Put your address in to relevant info" />
-                    <button>Search</button>
-                    {/* <Autocomplete
-                        apiKey={API_KEY}
-                        onPlaceSelected={(place) => {
-                            console.log(place);
-                        }}
-                    />; */}
-                    {/* <GoogleMapsLoader>
-                        <PlacesAutocomplete />
-                    </GoogleMapsLoader> */}
+                    <GoogleMapsLoader apiKey={API_KEY} libraries={libraries}>
+                        <PlacesAutocomplete apiKey={API_KEY} libraries={libraries}/>
+                    </GoogleMapsLoader>
                 </div>
             </div>
             <div className="image-container">
