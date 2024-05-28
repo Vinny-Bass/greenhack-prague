@@ -37,3 +37,33 @@
 .chart-section {
     margin-bottom: 20px;
 }
+
+/* styles.css */
+.solar-savings-overview {
+    padding: 20px;
+}
+
+.content-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.solar-image {
+    margin-right: 20px;
+    max-width: 300px; /* Adjust the width as needed */
+    height: auto;
+}
+
+.info-section {
+    flex: 1;
+}
+
+.chart-section {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}

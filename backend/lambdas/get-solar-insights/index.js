@@ -50,16 +50,14 @@ const getCountry = (geoData) => {
 const getCountryFinancialData = (country) => {
     let pricePerPanel = 250;
     let priceOfKwh = 0.31;
-    let installationCost = 7000;
-    let govIncentive = installationCost * 0.35;
+    let govIncentive = 0.35;
     let perWatt = 1.63;
     let dcToAc = 0.9;
 
     if (country === "CZ") {
         pricePerPanel = 5500;
         priceOfKwh = 8.126;
-        installationCost = 500000;
-        govIncentive = 250000;
+        govIncentive = 0.50;
         perWatt = 28.36;
         dcToAc = 0.88;
     }
@@ -67,11 +65,28 @@ const getCountryFinancialData = (country) => {
     return {
         pricePerPanel,
         priceOfKwh,
-        installationCost,
         govIncentive,
         perWatt,
         dcToAc,
     };
+};
+
+const calculateROIYears = (data) => {
+    const { installationCostTotal, solarIncentives, yearlyUtilityBillEstimates, yearlyCostWithoutSolar } = data;
+    const initialInvestment = installationCostTotal - (installationCostTotal * solarIncentives);
+    let cumulativeSavings = 0;
+    let years = 0;
+
+    for (let i = 0; i < yearlyUtilityBillEstimates.length; i++) {
+        const yearlySavings = yearlyCostWithoutSolar[i] - yearlyUtilityBillEstimates[i];
+        cumulativeSavings += yearlySavings;
+        years++;
+        if (cumulativeSavings >= initialInvestment) {
+            break;
+        }
+    }
+
+    return years;
 };
 
 module.exports.handler = async (event) => {
@@ -106,7 +121,7 @@ module.exports.handler = async (event) => {
                 const panelCapacityWatts = 400;
                 const solarIncentives = govIncentive;
                 const installationCostPerWatt = perWatt;
-                const installationLifeSpan = 5;
+                const installationLifeSpan = 20;
 
                 const dcToAcDerate = dcToAc;
                 const efficiencyDepreciationFactor = 0.995;
@@ -148,10 +163,7 @@ module.exports.handler = async (event) => {
                     );
                 const remainingLifetimeUtilityBill =
                     yearlyUtilityBillEstimates.reduce((x, y) => x + y, 0);
-                const totalCostWithSolar =
-                    installationCostTotal +
-                    remainingLifetimeUtilityBill -
-                    solarIncentives;
+                const totalCostWithSolar = remainingLifetimeUtilityBill    
 
                 const yearlyCostWithoutSolar = [...Array(installationLifeSpan).keys()].map(
                     (year) => (monthlyAverageEnergyBill * 12 * costIncreaseFactor ** year) / discountRate ** year,
@@ -163,13 +175,14 @@ module.exports.handler = async (event) => {
                 return {
                     country,
                     installationCost: installationCostTotal,
-                    govIncentive,
+                    govIncentive: installationCostTotal - (installationCostTotal * solarIncentives),
                     panelsCount,
                     yearlyUtilityBillEstimates,
                     totalCostWithoutSolar,
                     totalCostWithSolar,
                     yearlyCostWithoutSolar,
                     savings,
+                    roiYears: calculateROIYears({installationCostTotal, solarIncentives, yearlyUtilityBillEstimates, yearlyCostWithoutSolar}),
                 };
             }
         );
