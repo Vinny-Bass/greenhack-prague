@@ -57,7 +57,7 @@ const SolarSavingsOverview = ({ data }) => {
                     <p><strong>Savings with Solar:</strong> {formatCurrency(data.savings, data.country)}</p>
                     <p><strong>Years until ROI overcome costs:</strong> {data.roiYears}</p>
                 </div>
-                {/* <img src={czImage} alt="Solar panels on a house" className="solar-image"/> */}
+                <img src={czImage} alt="Solar panels on a house" className="solar-image"/>
             </div>
             <div className="chart-section">
                 <SavingsChart data={data} />
