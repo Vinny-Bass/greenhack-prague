@@ -19,8 +19,8 @@ const SolarSavingsOverview = ({ data }) => {
     if (!data) return (<></>)
 
     let years = 0;
-    const panels = data.map(d => d.panelsCount);
     data[0].yearlyUtilityBillEstimates.forEach(() => years++);
+    const panels = data.filter(d => d.yearlyUtilityBillEstimates[years - 1] > 0).map(d => d.panelsCount);
     data = data.find(d => d.panelsCount == panelsNumber);
     const handlePanelsChange = (event) => {
         setPanelsNumber(parseInt(event.target.value));

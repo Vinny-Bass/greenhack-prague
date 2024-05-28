@@ -13,8 +13,9 @@ provider:
 plugins:
   - serverless-offline
 
+useDotenv: true
+
 custom:
-  dotenv: true
   serverless-offline:
     httpPort: 8085
 
