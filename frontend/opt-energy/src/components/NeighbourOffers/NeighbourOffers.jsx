@@ -13,7 +13,7 @@ const NeighbourOffers = ({ offers }) => {
                 {DESCRIPTION}
             </h3>
             <div className="offers-list">
-                {offers.map((offer, index) => (
+                {offers && offers.map((offer, index) => (
                     <div key={index} className="offer-card">
                         <img src={offer.profilePic} alt={`${offer.name}'s profile`} className="profile-pic" />
                         <div className="offer-details">

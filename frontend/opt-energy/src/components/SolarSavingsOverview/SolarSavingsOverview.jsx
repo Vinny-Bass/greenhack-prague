@@ -11,6 +11,7 @@ const formatCurrency = (value, currency = 'GBP') => {
 };
 
 const SolarSavingsOverview = ({ data }) => {
+    if (!data) return (<></>)
     return (
         <div className="solar-savings-overview">
             <h1>Solar Energy Savings Overview</h1>

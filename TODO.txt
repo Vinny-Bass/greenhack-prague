@@ -1,9 +1,10 @@
 [X] connect FE with BE and display chart based on insights-service
 [X] create marketplace component
-    [] create marketplace service with mock data
+    [X] create marketplace service with mock data
 [] create the scraped prices component
     [] create the scrap service with mock data
 [] replace insights-service with real calculation data
 [] replace scrap service with real scrap data
 [] create diagram
+[] add auth
 [] replace hard code by env

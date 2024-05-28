@@ -6,6 +6,15 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs18.x
+  httpApi:
+    cors: true
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 8085
 
 functions:
   api:
