@@ -4,7 +4,7 @@ import GoogleMapsLoader from "../PlacesAutoComplete/GoogleMapsLoader";
 import PlacesAutocomplete from "../PlacesAutoComplete/PlacesAutoComplete";
 
 export default function Home() {
-    const API_KEY = "AIzaSyCVrqaKz6odqK05Ne7s0QMuP6qiNuLXvkM";
+    const API_KEY = "";
     const libraries = ["places"];
     return (
         <main>
